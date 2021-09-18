@@ -21,11 +21,13 @@ function imprimeMensagem() {
 // Exercícios
 
 // Exercício 1
-function calculaAreaRetangulo(altura, largura) {
+function calculaAreaRetangulo() {
 // escreva seu código aqui
-let alturaTexto = Number prompt ("Insira o valor da altura do retângulo")
-let larguraTexto = Number prompt ("Insira o valor da largura do retângulo")
-let areaRetangulo = altura * largura
+const alturaTexto = prompt ("Insira o valor da altura do retângulo")
+const larguraTexto = prompt ("Insira o valor da largura do retângulo")
+const altura = Number(alturaTexto)
+const largura = Number(larguraTexto)
+const areaRetangulo = altura * largura
 console.log (areaRetangulo)
 }
 
