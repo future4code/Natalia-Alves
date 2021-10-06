@@ -1,0 +1,26 @@
+Os sete passos fundamentais são:
+
+-Ter atenção no enunciado
+-Retirar Informações relevantes
+-Pensar entradas e saídas
+-Fazer um esquema visual
+-Criar código feio
+-Testar força bruta
+-Refatorar
+
+Eles nos ajudam a parar e pensar nos problemas
+propostos com calma e de forma organizada, sem tentar 
+escrever o codigo logo de cara, o que pode ser nada
+produtivo pois podemos travar na resolução do problema 
+por deixar passar informações importantes contidas na 
+proposta do problema a ser solucionado ou por não 
+visualizarmos bem o caminho a ser percorrido pelo
+código.
+Além disso, pensar entradas e saídas nos ajuda a testar
+nossa idéia de como desenvolver o programa, nos fazendo pensar
+em quais informações vamos entrar no programa e quais são nossas
+saídas esperadas e se ele está se comportando como o esperado,
+bem como o teste de força bruta que nos ajuda a verificar se
+estamos no caminho correto. Refatorar pode nos fazer perceber
+se não deixamos de fora alguma variável ou condição de fora
+na primeira passagem que fizemos para começar a escrever o codigo. 
