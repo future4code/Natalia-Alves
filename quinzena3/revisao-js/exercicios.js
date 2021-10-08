@@ -9,8 +9,19 @@ function inverteArray(array) {
 
 // EXERCÍCIO 02
 function retornaNumerosParesElevadosADois(array) {
-
+  let numerosQuadradosArray = []
+  let pares = function(item) {
+    return item % 2 === 0
+    }
+  let quadrados = function(item) {
+    return Math.pow(item, 2)
+    }
+    let numerosQuadrados= array.filter (pares). map (quadrados)
+    numerosQuadradosArray.push(numerosQuadrados)
+    
+    return numerosQuadradosArray
 }
+
 
 // EXERCÍCIO 03
 function retornaNumerosPares(array) {
