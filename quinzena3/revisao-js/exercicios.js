@@ -9,24 +9,27 @@ function inverteArray(array) {
 
 // EXERCÍCIO 02
 function retornaNumerosParesElevadosADois(array) {
-  let numerosQuadradosArray = []
   let pares = function(item) {
     return item % 2 === 0
     }
   let quadrados = function(item) {
     return Math.pow(item, 2)
     }
-    let numerosQuadrados= array.filter (pares). map (quadrados)
-    numerosQuadradosArray.push(numerosQuadrados)
+    let numerosQuadrados = array.filter (pares). map (quadrados)
     
-    return numerosQuadradosArray
+    return numerosQuadrados
 }
 
 
 // EXERCÍCIO 03
 function retornaNumerosPares(array) {
-
+  let pares = function(item) {
+    return item % 2 === 0
+    }
+    let numerosPares = array.filter (pares)
+    return numerosPares
 }
+
 
 // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
