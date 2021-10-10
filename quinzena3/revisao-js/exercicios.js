@@ -33,7 +33,15 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
-
+let i = 0
+let maiorNumero = -Infinity
+while(i < array.length){
+  if (array[i] > maiorNumero){
+    maiorNumero = array[i]
+  }
+  i++
+}
+return maiorNumero
 }
 
 // EXERCÍCIO 05
