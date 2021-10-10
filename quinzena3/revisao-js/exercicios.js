@@ -92,8 +92,14 @@ return respostas
 
 // EXERCÍCIO 07
 function retornaNNumerosPares(n) {
-
-}
+    const novoArrayPares = [];
+    for(let numero = 0; novoArrayPares.length < n; numero++) {
+     if(numero % 2 === 0) {
+       novoArrayPares.push(number)
+     }
+    }
+    return novoArrayPares
+   }
 
 // EXERCÍCIO 08
 function checaTriangulo(a, b, c) {
