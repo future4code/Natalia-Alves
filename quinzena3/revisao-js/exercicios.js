@@ -137,7 +137,33 @@ function comparaDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 10
 function segundoMaiorEMenor(array) {
+  let menorNumero = Infinity
+  let maiorNumero = -Infinity
+  let segundoMenorNumero = Infinity
+  let segundoMaiorNumero = -Infinity
+  let arraySegundoMaiorEMenor = []
 
+  for (let i of array){
+    if (i < menorNumero){
+      menorNumero = i
+    }
+    if (i > maiorNumero){
+      maiorNumero = i
+    }
+  }
+
+  for (let i of array){
+    if (i < segundoMenorNumero && i !== menorNumero){
+      segundoMenorNumero = i
+    }
+    if (i > segundoMaiorNumero && i !== maiorNumero){
+      segundoMaiorNumero = i
+    }
+   
+  }
+  arraySegundoMaiorEMenor.push(segundoMaiorNumero)
+  arraySegundoMaiorEMenor.push(segundoMenorNumero)
+  return arraySegundoMaiorEMenor
 }
 
 // EXERCÍCIO 11
