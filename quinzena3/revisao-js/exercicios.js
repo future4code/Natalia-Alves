@@ -52,7 +52,42 @@ function retornaQuantidadeElementos(array) {
 
 // EXERCÍCIO 06
 function retornaExpressoesBooleanas() {
+ let respostas = []
+ const booleano1 = true
+ const booleano2 = false
+ const booleano3 = !booleano2 
+ const booleano4 = !booleano3 
+ itemUm = false
+ itemDois = false
+// a) `booleano1 && booleano2 && !booleano4` 
+// b) `(booleano1 && booleano2) || !booleano3` 
+// c)  `(booleano2 || booleano3) && (booleano4 || booleano1)` 
+// d) `!(booleano2 && booleano3) || !(booleano1 && booleano3)` 
+// e) `!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)`
+if (booleano1 && booleano2 && !booleano4){
+  itemUm = true 
+}else{
+  respostas.push (itemUm)
+}
+if ((booleano1 && booleano2) || !booleano3){
+  itemDois = true  
+}else{
+  respostas.push(itemDois)
+}
+if ((booleano2 || booleano3) && (booleano4 || booleano1)){
+  itemTres =true
+  respostas.push(itemTres)
+}
+if(!(booleano2 && booleano3) || !(booleano1 && booleano3)){
+  itemQuatro = true
+  respostas.push(itemQuatro)
+}
+if(!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)){
+  itemCinco = true
+  respostas.push(itemCinco)
+}
 
+return respostas
 }
 
 // EXERCÍCIO 07
