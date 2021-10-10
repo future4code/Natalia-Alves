@@ -168,6 +168,16 @@ function segundoMaiorEMenor(array) {
 
 // EXERCÍCIO 11
 function ordenaArray(array) {
+ const comprimento = array.length
+   for(let ultimaPosicao = comprimento-1 ; ultimaPosicao > 0 ; ultimaPosicao --){
+     for (let i = 0 ; i < ultimaPosicao ; i++){
+       if (array[i] > array [i+1]){
+         [array [i], array [i+1]] = [array[i+1] , array[i]] 
+       }
+     }
+   }
+   return array
+ 
 
 }
 
