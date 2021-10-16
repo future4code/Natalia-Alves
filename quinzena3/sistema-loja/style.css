@@ -1,16 +1,90 @@
-div {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.cabecalho{
+    width: 100% ; float: left ; padding: 50px ; background-color:burlywood;
+}
+.corpo{
+    background-color:lemonchiffon;
+}
+/*div {
+    padding-top: 1px;
+    padding-bottom: 1px;
     padding-left: 10px;
-    padding-right: 15px;
+    padding-right: 10px;
     }
-
+    */
+.paginas{
+    background-color: coral; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+}
+.informacoes{
+    background-color:lemonchiffon;
+}
 h1{
-    color: brown;
-    background-color: cadetblue;
+    color: rgb(39, 15, 124);
+    background-color: cadetblue; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 
 h2{
     color:darkslategray
 }
+
+img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+  }
+.controle-de-estoque{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.add_produto{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.link-foto-add{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.descricao-protudo-add{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}.preco-add{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.quantidade-add{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.form-add{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.container{
+    width: 200px;
+    padding-left: 30px;
+    padding-right: 1px;
+}
+
+
+.footer{
+    bottom: 0px; float: right; margin: 10px 50px 20px;;
+  }

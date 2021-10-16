@@ -7,12 +7,13 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Adicionar Produto</title>
 </head>
-<body>
+<body class="corpo">
+    <header class = "cabecalho"></header>
     <div>
-        <p>Nome da lojinha</p>
+        <p>Loja da Natinha</p>
     </div>
     
-    <div>
+    <div class="paginas">
         <a href="index.html">Página Inicial</a>
         <a href="ctrl-estoque.html">Controle de Estoque</a>
         <a href="add-produto.html">Adicionar Produto</a>
@@ -21,28 +22,28 @@
 
     
     <h2>Adicionar Produto</h2>
-    <form action="">
-        <div>
+    <form action="" class="add_produto">
+        <div class="link-foto-add">
             <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
+            <input class = "container" type="url" id="link-foto" name="link-foto">
         </div>
         
-        <div>
+        <div class="descricao-protudo-add">
             <label for="descricao">Descrição do produto: </label>
             <!-- Adicione o id apropriado para o input abaixo -->
-            <input type="text" id="descricao" name="descrição">
+            <input class = "container" type="text" id="descricao" name="descrição">
         </div>
         
-        <div>
+        <div class = "preco-add">
             <label for="preco">Preço (em R$): </label>
             <!-- Adicione o id apropriado e o type para receber números abaixo -->
-            <input type="" id="preço" name="preço">
+            <input class = "container" type="number" id="preço" name="preço">
         </div>
         
-        <div>
+        <div class="quantidade-add">
             <!-- Preencha as propriedades necessárias para os elementos abaixo -->
             <label>Quantidade disponível: </label>
-            <input>
+            <input class = "container" type="number" id="quantidade" name="quantidade">
         </div>
 
         <div class="form-add">
