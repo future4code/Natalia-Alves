@@ -113,6 +113,10 @@ td button {
     border-radius: 5px;
     color: black;
 }
+td >img {
+    height: 70px;
+    width: 60px;
+}
 
 .container-do-search {
     margin-top: 20px;
