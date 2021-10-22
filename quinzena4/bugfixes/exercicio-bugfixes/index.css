@@ -123,6 +123,11 @@ td >img {
     height: 100px;
 }
 
+.icone{
+    height: 20px;
+    width: 20px;
+}
+
 
 #back-button {
     background-color: white;
