@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+#page-flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    align-items: center
+}
+h1{
+    color: white;
+}
+p{
+    color: white;
+}
+nav {
+    width: 300px;
+    color: white;
+}
+#about{
+    align-items: right;
+}
