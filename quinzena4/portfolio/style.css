@@ -1,3 +1,4 @@
+/*Index-style*/
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +18,12 @@ header {
     padding: 0 60px;
     align-items: center
 }
+header>img{
+    margin: 10px;
+    padding: 10px;
+    height: 90px;
+    width: 90px;
+}
 h1{
     color: white;
 }
@@ -29,4 +36,22 @@ nav {
 }
 #about{
     align-items: right;
+}
+/*Project-style*/
+
+/*Reach-me-style*/
+.reach-me{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    
+}
+.reach-me>h2{
+    color: white;
+    
+   
+}
+.form-contact{
+    color: white;
+    
 }
