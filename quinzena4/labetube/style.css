@@ -104,6 +104,10 @@ video{
         box-shadow: 2% 2% 5% darkgray;
     }
 
+    .card-videos>a>img{
+        width: 100%;
+    }
+
     main{
         display: grid;
         align-items: flex-start;
