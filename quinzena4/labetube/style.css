@@ -90,20 +90,13 @@ video{
     }
 
     .card-videos{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 50%;
+        width: 100%;
         text-align:center;
         box-shadow: 2% 2% 5% darkgray;
     }
 
     .card-videos>a{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 50%;
-        margin: 10%;
+        width: 100%;
         text-align:center;
         box-shadow: 2% 2% 5% darkgray;
     }
@@ -111,9 +104,9 @@ video{
     main{
         display: grid;
         align-items: flex-start;
+        justify-items: center;
         grid-template-columns: repeat(1, 1fr);
-        row-gap: 20%;
-        margin: 15%;
+        row-gap: 10%;
     }
 
     footer{
