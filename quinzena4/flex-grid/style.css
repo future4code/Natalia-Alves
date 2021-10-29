@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#page-flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: mediumvioletred;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 60px;
+    align-items: center
+}
+
+main {
+    background-color: #f2d0e0;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    color: black;
+    display: flex;
+    overflow: auto;
+}
+main.img{
+    height: 5px;
+    width: 5px;
+    justify-content: space-between;
+}
+nav {
+    background-color:#f2d0e0;
+    width: 300px;
+    
+}
+
+#imagens-bolos{
+    display: grid;
+    justify-content: right;
+    height: 30;
+    width: 30;
+    overflow: auto;
+
+}
+
+footer {
+    background-color:mediumvioletred;
+    height: 70px;
+    justify-content: center;
+}
+
