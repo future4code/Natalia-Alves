@@ -93,8 +93,7 @@ video{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        width: 30vh;
-        height: 10vh;
+        width: 50%;
         text-align:center;
         box-shadow: 2% 2% 5% darkgray;
     }
@@ -103,8 +102,7 @@ video{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        width: 30vh;
-        height: 10vh;
+        width: 50%;
         margin: 10%;
         text-align:center;
         box-shadow: 2% 2% 5% darkgray;
