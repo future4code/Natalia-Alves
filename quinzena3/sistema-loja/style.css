@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gabriela', serif;
+}
+.cabecalho {
+    background-color: rgb(136, 59, 172);
+    height: 200px;
+    text-align: center;
+    padding: 40px;
+    
+}
+.texto-cabecalho{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.subtitulo{
+    font-family: sans-serif;
+}
+
+.cabecalho-sub{
+    background-color: rgb(136, 59, 172);
+    height: 20px;
+    height: 50px;
+    text-align: right;
+    padding: 10px;
+}
+.corpo{
+    background-color:lemonchiffon;
+}
+
+.paginas{
+    background-color: coral; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+}
+.informacoes{
+    background-color:lemonchiffon;
+}
+
+
+h2{
+    color:darkslategray
+}
+
+td > img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+  }
+.controle-de-estoque{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.add_produto{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.link-foto-add{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.descricao-protudo-add{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}.preco-add{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.quantidade-add{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.form-add{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.container{
+    width: 200px;
+    padding-left: 30px;
+    padding-right: 1px;
+}
+
+
+.rodape{
+    background-color: rgb(194, 194, 245);
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.rodape > p {
+    width: 60%;
+    float: left;
+    text-align: right;
+    margin: 60px auto;
+}
+
+.img-rodape {
+    width: 40%;
+    float: right;
+    text-align: center;
+    margin: 40px auto;
+}
+
+.img-rodape > img {
+    height: 40px;
+    margin: 5px;
+}
