@@ -72,7 +72,7 @@ video{
     justify-content: center;
 }
 
-@media screen and (min-device-width : 375px) and (max-device-width : 767px) {
+@media only screen and (min-device-width : 375px) and (max-device-width : 767px) {
     *{
         margin: 0;
         padding: 0;
@@ -93,6 +93,9 @@ video{
         width: 100%;
         text-align:center;
         box-shadow: 2% 2% 5% darkgray;
+    }
+    .card-videos>img{
+        width: 100%;
     }
 
     .card-videos>a{
