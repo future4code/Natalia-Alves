@@ -93,18 +93,27 @@ video{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        max-width: 20%px;
-        max-height: 80%px;
+        width: 20%;
+        height: 80%;
         text-align:center;
-        box-shadow: 2px 2px 5px darkgray;
+        box-shadow: 2% 2% 5% darkgray;
+    }
+
+    .card-videos>a{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 20%;
+        height: 80%;
+        text-align:center;
+        box-shadow: 2% 2% 5% darkgray;
     }
 
     main{
         display: grid;
-        justify-items: center;
         grid-template-columns: repeat(1, 1fr);
-        column-gap: 20px;
-        margin: 20px;
+        column-gap: 5%;
+        margin: 15%;
     }
 
     footer{
