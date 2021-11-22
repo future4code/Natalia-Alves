@@ -1,0 +1,61 @@
+.listaDoChat{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    height: 90px;
+}
+.listaDoChat:hover{
+    background-color: #F5F5F5;
+}
+.imagemPerfilContato{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-top: 15px;
+    
+}
+.linhasDeChat{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid #EEE;
+    padding-right: 15px;
+    margin-left: 15px;
+
+    flex-wrap: wrap;
+    min-width: 0;
+
+}
+.linhaDeChat{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+}
+.nomeDoContato{
+    font-size: 17px;
+    color: black;
+
+}
+.horaDoChat{
+    font-size: 12px;
+    color: #999;
+}
+
+.ultimaMensagem{
+    font-size: 14px;
+    color: #999;
+    display: flex;
+    width: 100%;
+    
+}
+.ultimaMensagem p{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding-bottom: 15px;
+}
