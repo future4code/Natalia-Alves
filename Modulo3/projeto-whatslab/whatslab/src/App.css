@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    background-color: #D2DBDC;
+    margin: 0;
+    font-family: "Segoe UI", Helvetica Neue, Helvetica, Arial ;
+}
+.janelaApp{
+    display: flex;
+    height: 100vh;
+    background-color: #EDEDED;
+}
+.sidebar {
+    width: 35%;
+    max-width: 415px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #DDD;
+}
+
+header{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+.imagem-perfil{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.botoes-header{
+    display: flex;
+}
+.bts-header{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.pesquisa{
+    background-color: #F6F6F6;
+    border-bottom: 1px solid #EEE;
+    padding: 5px 15px;
+}
+.input-de-pesquisa{
+    background-color: #FFF;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+
+}
+.input-de-pesquisa input{
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    margin-left: 10px;
+}
+.lista-do-chat{
+    flex: 1;
+    background-color: #FFF;
+    overflow-y:auto;
+
+}
+.lista-do-chat::-webkit-scrollbar{
+    width: 6px;
+    height: 6px;
+}
+.lista-do-chat::-webkit-scrollbar-thumb{
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+.area-de-conteudo{
+
+}
