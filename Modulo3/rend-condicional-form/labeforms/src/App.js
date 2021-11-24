@@ -7,15 +7,6 @@ import Final from "./components/Final";
 
 export default class App extends React.Component {
 
-  render(){
-    return(
-      <div>
-        {this.mostrarProximaPagina()}
-        <button onClick ={this.passarParaProximaEtapa}>Proxima Etapa</button>
-      </div>
-    );
-  }
-
   state = {
     etapa: 1,
   }
@@ -25,7 +16,7 @@ export default class App extends React.Component {
   }
 
   mostrarProximaPagina = () => {
-    switch (this.state.event) {
+    switch (this.state.etapa) {
       case 1: 
         return <Etapa1 />;
       case 2: 
@@ -34,11 +25,18 @@ export default class App extends React.Component {
         return <Etapa3/>;
       case 4: 
         return <Final/>
-      break;
       default:
         return <Etapa1/>;
     }
   }
 
+  render(){
+    return(
+      <div>
+        {this.mostrarProximaPagina()}
+        <button onClick ={this.passarParaProximaEtapa}>Proxima Etapa</button>
+      </div>
+    );
+  }
 
 }
