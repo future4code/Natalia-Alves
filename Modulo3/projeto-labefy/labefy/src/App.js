@@ -1,13 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
 import React from "react";
+import CriarPlaylist from "./Criar Playlist/CriarPlaylist";
+import AdicionarMusica from "./Adicionar Musica/AdicionarMusica";
 
-function App() {
-  return (
-    <div>
-      <p>só isso aqui já deu trabalho rs</p>
-    </div>
-  );
+export default class App extends React.Component {
+  render(){
+    return (
+      <div>
+        <CriarPlaylist/>
+
+        <AdicionarMusica>
+
+        </AdicionarMusica>
+      </div>
+    ); 
+  }
+  
 }
-
-export default App;
