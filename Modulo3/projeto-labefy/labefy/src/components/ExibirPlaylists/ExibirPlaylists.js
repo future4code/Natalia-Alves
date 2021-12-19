@@ -1,0 +1,42 @@
+import React, {Component} from "react";
+import styled from "styled-components";
+import axios from "axios";
+
+export default class ExibirPlaylists extends React.Component {
+    state = {
+        playlists:[]
+    }
+
+    componentDidMount(){
+        this.pegaPlaylists()
+    }
+
+    pegaPlaylists = () =>{
+        let URL ="https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
+        let autorizacao ={
+            headers:{
+                Authorization: "natalia-alves-joy"
+            }
+        }
+        axios.get(URL,autorizacao)
+        .then((response) => {this.setState({playlists: response.data.result.list})})
+        .catch((error)=>console.log(error))
+    }
+
+    render(){
+
+        let mapPlaylists = this.state.playlists.map ((playlists)=>{
+            return <li><b>Nome:</b>{playlists.name}<br/>
+            <b>ID:</b>{playlists.id}
+            </li>
+            
+        })
+      return (
+        <div key = {mapPlaylists.id}>
+            <h3>Número de Playlists: {mapPlaylists.length}</h3>
+            <ol>{mapPlaylists}</ol>
+        </div>
+      ); 
+    }
+    
+  }
