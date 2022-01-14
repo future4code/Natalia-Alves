@@ -8,7 +8,7 @@ const ContainerCabecalho = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 30vw;
+    width: 25vw;
     border-bottom: silver solid 1px ;
 
     button{
