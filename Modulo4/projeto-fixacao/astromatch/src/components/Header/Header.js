@@ -1,10 +1,9 @@
-import React, {UseState , UseEffect, useState} from 'react';
+import React, {UseEffect, useState} from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 
 
 const ContainerCabecalho = styled.div`
-    margin: 1vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -14,8 +13,9 @@ const ContainerCabecalho = styled.div`
     button{
         width: 60px;
         height: 60px;
-        border-radius: 50%;
+        border: none;
         cursor: pointer;
+        color:white;
     }
 
 `
@@ -33,23 +33,23 @@ const Foguinho = styled.img`
 `
 
 
-function PerfilUsuario() {
+function Header(props) {
 
-    const [mudaTela, setMudaTela] = useState(true)
+
     
     return (
       <ContainerCabecalho>
           <div>
-            <Foguinho src = "./img/tinder.png"/>
+            <button onClick={() => props.changePage('CardsPerfil')}><Foguinho src = "./img/tinder.png"/></button>
           </div>
           <div>
               <Imagem src = "./img/astrologo.jpeg"/>
           </div>
           <div>
-            <Cabecas src="./img/cabecas.jpeg"/>
+            <button onClick={() => props.changePage('Mensagens')}><Cabecas src="./img/cabecas.jpeg"/></button>
           </div>
       </ContainerCabecalho>
     );
   }
   
-  export default PerfilUsuario;
+  export default Header;

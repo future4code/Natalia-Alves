@@ -1,7 +1,8 @@
-import React, {UseState , UseEffect, useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
-import HeaderFooter from '../HeaderFooter/HeaderFooter';
+
+
 
 const Card = styled.div`
     margin: 2vh;
@@ -11,8 +12,6 @@ const Card = styled.div`
     justify-content: space-between;
     width: 25vw;
     height: 96vh;
-    border: 1px solid black;
-    border-radius: 5px;
 
 `
 const EstilizarPerfil = styled.div`
@@ -25,7 +24,7 @@ const EstilizarPerfil = styled.div`
     justify-content: space-around;
 `
 const ImagemEditada = styled.img`
-    margin: 1px;
+    margin: 20px;
     padding: 1px;
     display: flex;
     align-items: center;
@@ -36,9 +35,8 @@ const ImagemEditada = styled.img`
 const Match = styled.div`
     display:flex;
     align-items: flex-start;
-    padding-bottom:15px;
-    justify-content: space-evenly;
-    align-items: stretch;
+    justify-content: space-around;
+    width: 25vw;
 
 `
 
@@ -48,7 +46,7 @@ function CardsPerfil() {
 
    
     const pegaFotos = async () => {
-        await axios.get (`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/natalia/person`
+        await axios.get (`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/natalia-gouveia/person`
         ).then((response) =>{
             setImagens(response.data.profile)    
         })
@@ -66,7 +64,7 @@ function CardsPerfil() {
             id: imagens.id,
             choice: true
         }
-        axios.post("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/natalia/choose-person",
+        axios.post("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/natalia-gouveia/choose-person",
         body,
         {
             headers:{
@@ -76,22 +74,22 @@ function CardsPerfil() {
         ).then((response) => {
             // setListaMatch(response.data)
             console.log(response.data)
+            pegaFotos()
         }).catch((error) => {
             alert ("erro")
         })
     }
+
     return (
         <Card>
-            <HeaderFooter>
-            </HeaderFooter>
-            <p><ImagemEditada src = {imagens.photo}/></p>
+            <p><ImagemEditada src = {imagens && imagens.photo}/></p>
             <EstilizarPerfil>
-              <p>{imagens.name}, {imagens.age}</p>
-              <p>{imagens.bio}</p>               
+              <p>{imagens && imagens.name}, {imagens && imagens.age}</p>
+              <p>{imagens && imagens.bio}</p>               
             </EstilizarPerfil>
             <Match>
-                <button onClick={() => saladaMista (imagens.id)}>salada mista</button>
-                <button>é essa? não!</button>
+                <button onClick={() => saladaMista (true)}>salada mista</button>
+                <button onClick={() => saladaMista (!true)}>é essa? não!</button>
             </Match>
         </Card>
 
