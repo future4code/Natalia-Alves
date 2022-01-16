@@ -15,21 +15,24 @@ const Card = styled.div`
 
 `
 const EstilizarPerfil = styled.div`
-    margin: 3px;
-    padding-left: 5px;
+    margin: 1px;
+    padding-left: 2px;
     padding: 1px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
 `
 const ImagemEditada = styled.img`
     margin: 20px;
     padding: 1px;
     display: flex;
     align-items: center;
-    width: 25vw;
+    width: 23vw;
     height: 45vh;
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px grey;
 
 `
 const Match = styled.div`
@@ -37,7 +40,30 @@ const Match = styled.div`
     align-items: flex-start;
     justify-content: space-around;
     width: 25vw;
+    height: 5vh;
 
+`
+const ButtonShantay = styled.button`
+    width: 9vw;
+    height: 5vh;
+    border: 2px darkgreen solid;
+    cursor: pointer;
+    background-color: palegreen;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    &:hover{
+        background-color: darkgreen;
+    }
+`
+
+const ButtonSashay = styled.button`
+    width: 9vw;
+    height: 5vh;
+    border: 2px darkred solid;
+    cursor: pointer;
+    background-color: palevioletred;
+    &:hover{
+        background-color: darkred;
+    }
 `
 
 function CardsPerfil() {
@@ -88,8 +114,8 @@ function CardsPerfil() {
               <p>{imagens && imagens.bio}</p>               
             </EstilizarPerfil>
             <Match>
-                <button onClick={() => saladaMista (true)}>salada mista</button>
-                <button onClick={() => saladaMista (!true)}>é essa? não!</button>
+                <ButtonShantay onClick={() => saladaMista (true)}>SALADA MISTA!</ButtonShantay>
+                <ButtonSashay onClick={() => saladaMista (!true)}>É ESSA? NÃO!</ButtonSashay>
             </Match>
         </Card>
 

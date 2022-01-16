@@ -11,6 +11,8 @@ const ContainerApp = styled.div`
   align-items: center;
   align-content: center;
   justify-content: center;
+  background-color: silver;
+  height: 100vh;
 
 `
 const Container = styled.div`
@@ -19,10 +21,11 @@ const Container = styled.div`
   align-items: center;
   align-content: center;
   justify-content: center;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 25vw;
-  height: 96vh;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 30vw;
+  height: 95vh;
+  background-color: white;
 `
 
 function App() {

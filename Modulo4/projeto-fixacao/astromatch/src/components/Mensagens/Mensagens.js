@@ -29,6 +29,22 @@ const ListaMatches = styled.div`
   margin-left: 5px;
 
 `
+const ButtonAway = styled.button`
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 25vw;
+  height: 5vh;
+  border: 2px purple solid;
+  cursor: pointer;
+  background-color: violet;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  &:hover{
+    background-color: purple;
+  }
+`
 
 function Mensagem(props) {
   const [listaMatches, setListaMatches] = useState ([]);
@@ -59,7 +75,7 @@ function Mensagem(props) {
   const limpaMatches = () => {
     axios.put("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/natalia-gouveia/clear"
     ).then((response) => {
-      console.log(response)
+      alert ("Lista Exluida!")
       getMatches()
     }).catch((error) => {
       console.log("erro")
@@ -71,7 +87,7 @@ function Mensagem(props) {
     return (
       <Container>
        {listaMatches && getMatchesFilter}
-       <button onClick={() => limpaMatches()}>Limpa Matches</button>
+       <ButtonAway onClick={() => limpaMatches()}>Limpa Matches</ButtonAway>
       </Container>
     );
   }

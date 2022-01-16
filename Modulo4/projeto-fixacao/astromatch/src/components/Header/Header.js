@@ -7,29 +7,28 @@ const ContainerCabecalho = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 25vw;
+    width: 30vw;
     border-bottom: silver solid 1px ;
 
+
     button{
-        width: 60px;
-        height: 60px;
+        width: 2.5vw;
+        height: 3vh;
         border: none;
         cursor: pointer;
-        color:white;
+        background-color: white;
     }
-
-`
-const BoxImagem = styled.div`
 
 `
 const Imagem = styled.img`
     width: 9vw;
+    margin: 5px;
 `
 const Cabecas = styled.img`
     width: 2.5vw;
 `
 const Foguinho = styled.img`
-    width: 3vw;
+    width: 2.5vw;
 `
 
 
