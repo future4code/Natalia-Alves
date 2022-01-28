@@ -41,16 +41,18 @@ const ApplicationFormPageBody = styled.div`
 `
 const StyledButtons = styled.div`
     display: flex;
+    justify-content: center;
     padding:20px;
-    padding-left: 25px;
-    padding-right: 25px;
     
 `
 const PreviousPage = styled.button`
-
+   
+    width: 160px;
+    margin-right: 200px;
 `
 const Submit = styled.button`
-
+    width: 160px;
+    margin-left: 200px;
 `
 
 function ApplicationFormPage(){
