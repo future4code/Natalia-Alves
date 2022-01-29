@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const LoginPageHeader = styled.header`
@@ -42,6 +43,8 @@ const StyledButtons = styled.div`
 
 function LoginPage(){
 
+    let navigate = useNavigate ();
+    
     return(
     <div>
         <LoginPageHeader>
@@ -52,7 +55,9 @@ function LoginPage(){
             <input placeholder='E-mail'></input>
             <input placeholder='senha'></input>
             <StyledButtons>
-            <button>VOLTAR</button>
+            <button onClick={()=> {
+                    navigate("/")
+                }}>VOLTAR</button>
             <button>ENTRAR</button>
             </StyledButtons>
         </LoginBody>

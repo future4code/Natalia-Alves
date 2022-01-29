@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const HomeHeader = styled.header`
@@ -38,14 +39,20 @@ const SiteBody = styled.div`
 
 function HomePage(){
 
+    let navigate = useNavigate ();
+
     return(
         <div>
             <HomeHeader>
-                <button>ÁREA DO ADMINISTRADOR</button>
+                <button onClick={()=> {
+                    navigate("/loginpage")
+                }}>ÁREA DO ADMINISTRADOR</button>
             </HomeHeader>
             <SiteBody>
                 <h1>LABEX</h1>
-                <button>VER VIAGENS</button>
+                <button onClick={()=> {
+                    navigate("/listtrips")
+                }}>VER VIAGENS</button>
                 <h2>Temos viagens incríveis disponíveis, vá até a nossa lista de viagens disponíveis 
                     se inscreva em uma e aguarde nosso contato. Boa sorte!
                 </h2>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const AdminHomePageHeader = styled.header`
@@ -25,6 +26,7 @@ const AdminHomePageBody = styled.div`
     flex-direction: column;
 
 `
+
 const StyledButtons = styled.div`
     display: flex;
     margin-top: 20px;
@@ -41,6 +43,8 @@ const StyledButtons = styled.div`
 
 function AdminHomePage(){
 
+    let navigate = useNavigate ();
+
     return(
     <div>
         <AdminHomePageHeader>
@@ -48,8 +52,12 @@ function AdminHomePage(){
         </AdminHomePageHeader>
         <AdminHomePageBody>
             <StyledButtons>
-            <button>VOLTAR</button>
-            <button>CRIAR VIAGEM</button>
+            <button onClick={()=> {
+                    navigate("/loginpage")
+                }}>VOLTAR</button>
+            <button onClick={()=> {
+                    navigate("/createtrip")
+                }}>CRIAR VIAGEM</button>
             </StyledButtons>
             
         </AdminHomePageBody>

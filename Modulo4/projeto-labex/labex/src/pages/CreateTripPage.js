@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const TripDetailsPageHeader = styled.header`
@@ -66,6 +67,8 @@ const StyledButtons = styled.div`
 
 function CreateTripPage(){
 
+    let navigate = useNavigate ();
+
     return(
     <div>
         <TripDetailsPageHeader>
@@ -83,7 +86,9 @@ function CreateTripPage(){
             <input placeholder='Data'></input>
             </TripForm>
             <StyledButtons>
-                <button>VOLTAR</button>
+                <button onClick={()=> {
+                    navigate("/adminhomepage")
+                }}>VOLTAR</button>
                 <button>CRIAR</button>
             </StyledButtons>
         </TripDetailsPageBody>

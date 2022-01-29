@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const AppHeader = styled.header`
@@ -57,6 +58,8 @@ const Submit = styled.button`
 
 function ApplicationFormPage(){
 
+    let navigate = useNavigate ();
+
     return(
         <div>
         <AppHeader>
@@ -84,7 +87,9 @@ function ApplicationFormPage(){
             </textarea>
         </form>
         <StyledButtons>
-        <PreviousPage>VOLTAR</PreviousPage>
+        <PreviousPage onClick={()=> {
+                    navigate("/listtrips")
+                }}>VOLTAR</PreviousPage>
         <Submit>ENVIAR</Submit>
         </StyledButtons>
         </ApplicationFormPageBody>

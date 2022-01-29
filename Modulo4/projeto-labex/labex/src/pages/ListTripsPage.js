@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from './utils/constants';
 
 const ListTripsPageHeader = styled.header`
     width:100vw;
@@ -34,28 +36,53 @@ const StyledTripDiv = styled.div`
     display: flex;
     flex-direction: column;
     border:black solid 1px;
-
-
+    margin-top: 20px;
+    margin-bottom: 20px;
 `
 
 function ListTripsPage(){
+    const [listTrips, setListTrips] = useState ([])
+
+    let navigate = useNavigate ();
+
+    const GetTrips =()=>{
+        axios.get(`${BASE_URL}/trips`).then((response) =>{
+            setListTrips(response.data.trips)
+        }).catch((error) => {alert("erro")})
+    }
+
+    useEffect (() => {
+        GetTrips()
+    }, []);
+
+    const GetTripsMap = listTrips.map ((trips) =>{
+        return(
+            <StyledTripDiv key = {trips.id}>
+            <p>Nome: {trips.name}</p>
+            <p>Descrição: {trips.description}</p>
+            <p>Planeta: {trips.planet}</p>
+            <p>Duração: {trips.durationInDays}</p>
+            <p>Data: {trips.date}</p>
+
+            </StyledTripDiv>
+        )
+    })
 
     return(
         <div>
             <ListTripsPageHeader>
-                <button>INSCREVA-SE</button>
+                <button onClick={()=> {
+                    navigate("/applicationform")
+                }}>INSCREVA-SE</button>
             </ListTripsPageHeader>
             <ListTripsPageBody>
-                <button>PÁGINA ANTERIOR</button>
+                <button onClick={()=> {
+                    navigate("/")
+                }}>PÁGINA ANTERIOR</button>
                 <h1>LISTA DE VIAGENS</h1>
-                <StyledTripDiv>
-                <p>Nome: Viagem da minha vida</p>
-                <p>Descrição: A mais aguardada do ano, a mais esperado da aminha vida inteira!!!!!!!!!!!!!!!!!!!</p>
-                <p>Planeta: Saturno</p>
-                <p>Duração: 60</p>
-                <p>Data: 2021-12-09</p>
 
-                </StyledTripDiv>
+                {GetTripsMap}
+
             </ListTripsPageBody>
 
         </div>
