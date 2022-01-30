@@ -18,7 +18,9 @@ const HomeHeader = styled.header`
             margin-left: auto;
             margin-top: 1em;
             display: block;
+            margin-right: 10px;
         }
+
 `
 const SiteBody = styled.div`
     display: flex;

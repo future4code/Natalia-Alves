@@ -19,7 +19,7 @@ const ListTripsPageHeader = styled.header`
             margin-left: auto;
             margin-top: 1em;
             display: block;
-            margin-right: 5px;
+            margin-right: 30px;
         }
 `
 const ListTripsPageBody = styled.div`

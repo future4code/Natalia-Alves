@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState , useEffect } from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate , useParams } from 'react-router-dom';
+import { BsTrash } from 'react-icons/bs';
+import { BASE_URL } from './utils/constants';
 import axios from 'axios';
+import TripDetailsPage from "./TripDetailsPage";
 
 const AdminHomePageHeader = styled.header`
     width:100vw;
@@ -18,7 +21,7 @@ const AdminHomePageHeader = styled.header`
             margin-left: auto;
             margin-top: 1em;
             display: block;
-            margin-right: 5px;
+            margin-right: 30px;
         }
 `
 const AdminHomePageBody = styled.div`
@@ -26,6 +29,29 @@ const AdminHomePageBody = styled.div`
     flex-direction: column;
 
 `
+const StyledTripDisplay = styled.div`
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    border: lightslategray solid 2px;
+    background-color: silver;
+    width: 30vw;
+    margin-top: 50px;
+    margin-left: 450px;
+    padding: 10px;
+    cursor: pointer;
+        button{
+            border: none;
+            background-color: silver;
+            cursor: pointer;
+            :hover{
+                size:30px
+            }
+        }
+
+
+`
+
 
 const StyledButtons = styled.div`
     display: flex;
@@ -43,7 +69,31 @@ const StyledButtons = styled.div`
 
 function AdminHomePage(){
 
+    const [manageTrips, setManageTrips] = useState ([])
+    
+
     let navigate = useNavigate ();
+    const { id } = useParams();
+
+    const GetTrips =()=>{
+        axios.get(`${BASE_URL}/trips`).then((response) =>{
+            setManageTrips(response.data.trips)
+        }).catch((error) => {alert("erro")})
+    }
+
+    useEffect (() => {
+        GetTrips()
+    }, []);
+
+    const GetTripsMap = manageTrips.map ((trips) =>{
+        return(
+            <StyledTripDisplay key = {trips.id}>
+            <p>Nome: {trips.name}</p>
+            <button onClick={( ) =>{ navigate (`/tripdetails/${trips.id}`)}}>VER DETALHES</button>
+            <button><BsTrash size ={28}/></button>
+            </StyledTripDisplay>
+        )
+    })
 
     return(
     <div>
@@ -59,7 +109,9 @@ function AdminHomePage(){
                     navigate("/createtrip")
                 }}>CRIAR VIAGEM</button>
             </StyledButtons>
-            
+            <div >
+                {GetTripsMap}
+            </div>
         </AdminHomePageBody>
     </div>
     )

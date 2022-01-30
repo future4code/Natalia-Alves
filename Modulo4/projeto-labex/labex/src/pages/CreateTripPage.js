@@ -18,7 +18,7 @@ const TripDetailsPageHeader = styled.header`
             margin-left: auto;
             margin-top: 1em;
             display: block;
-            margin-right: 5px;
+            margin-right: 15px;
         }
 `
 const TripDetailsPageBody = styled.div`

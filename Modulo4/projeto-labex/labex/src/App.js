@@ -15,19 +15,19 @@ export default function App() {
       <div>
       <Routes>
 
-        <Route exact path={"/"} element={<HomePage/>}/>
+        <Route exact path= '/' element={<HomePage/>}/>
 
-        <Route exact path={"/listtrips"} element={<ListTripsPage/>}/>
+        <Route exact path= '/listtrips' element={<ListTripsPage/>}/>
 
-        <Route exact path={"/applicationform"} element={<ApplicationFormPage/>}/>
+        <Route exact path= '/applicationform' element={<ApplicationFormPage/>}/>
 
-        <Route exact path ={"/loginpage"} element={<LoginPage/>}/>
+        <Route exact path = '/loginpage' element={<LoginPage/>}/>
 
-        <Route exact path ={"/adminhomepage"} element={<AdminHomePage/>}/>
+        <Route exact path = '/adminhomepage' element={<AdminHomePage/>}/>
 
-        <Route exact path ={"/tripdetails"} element={<TripDetailsPage/>}/>
+        <Route exact path = '/tripdetails/:id' element={<TripDetailsPage/>}/>
 
-        <Route exact path ={"/createtrip"} element={<CreateTripPage/>}/>
+        <Route exact path = '/createtrip' element={<CreateTripPage/>}/>
 
       </Routes>
       </div>
