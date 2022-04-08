@@ -1,0 +1,27 @@
+1)
+
+a. Qual método HTTP você deve utilizar para isso?
+	O método utilizado para fazer a requisição dos usuários será o GET
+
+b. Como você indicaria a entidade que está sendo manipulada?
+	Indicaria como "/users"
+
+2)
+
+a. Como você passou os parâmetros de type para a requisição? Por quê?
+
+b. Você consegue pensar em um jeito de garantir que apenas `types` válidos sejam utilizados?
+
+
+3)
+
+a. Qual é o tipo de envio de parâmetro que costuma ser utilizado por aqui?
+
+b. Altere este endpoint para que ele devolva uma mensagem de erro caso nenhum usuário tenha sido encontrado.
+
+
+4)
+
+a. Mude o método do endpoint para `PUT`. O que mudou?
+
+b. Você considera o método `PUT` apropriado para esta transação? Por quê?
