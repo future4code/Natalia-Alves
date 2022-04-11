@@ -1,0 +1,13 @@
+###
+POST http://localhost:3003/clients
+Content-Type: application/json
+
+{
+    "name": "Kobe",
+    "cpf": 58234976140,
+    "age": 18
+}
+
+###
+GET http://localhost:3003/clients
+Content-Type: application/json
