@@ -1,0 +1,134 @@
+SELECT * FROM Actor;
+SET SQL_SAFE_UPDATES = 0;
+
+# EXERCICIO 1
+ALTER TABLE Actor ADD favorite_ice_cream_flavor VARCHAR(255);
+ALTER TABLE Actor ADD type VARCHAR(255) DEFAULT "NotDirector";
+
+# A
+# ALTER TABLE Actor DROP COLUMN salary; => AO RODAR ESTE COMANDO A COLUNA SALARY SERIA REMOVIDA DA TABELA
+
+# B
+# ALTER TABLE Actor CHANGE gender sex VARCHAR(6); => AO RODAR ESTE COMANDO ALTERARIAMOS O CAMPO GENDER POR SEX
+# E TAMBÉM TIRARIAMOS O NOT NULL QUE FOI COLOCADO ANTERIORMENTE QUE EXIGIA QUE ALGUMA INFORMAÇÃO FOSSE INSERIDA NESTE CAMPO
+
+# C
+# ALTER TABLE Actor CHANGE gender gender VARCHAR(255); => AO RODAR ESTE COMANDO MUDARIAMOS SOMENTE A POSSIBILIDADE
+# DE ESCREVER TEXTOS MAIORES, ENTÃO TERIAMOS A POSSIBILIDADE DE ACRESCENTAR MAIS INFORMAÇÕES.
+
+ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
+
+# EXERCICIO 2
+
+# A
+UPDATE Actor
+SET 
+	name = "Moacyr Franco",
+	birth_date = "2020-02-10",
+    gender = "male"
+WHERE id = "003";
+
+# B
+UPDATE Actor
+SET name = "JULIANA PAES"
+WHERE name = "Juliana Paes";
+
+UPDATE Actor
+SET name = "Juliana Paes"
+WHERE name = "JULIANA PAES";
+
+# C
+UPDATE Actor
+SET 
+name = "Wagner Moura",
+birth_date = "1976-06-27",
+salary = 600000,
+gender = "male"
+WHERE id = "005";
+
+# D
+UPDATE Actor
+SET 
+name = "Debora Falabella",
+birth_date = "1979-02-22",
+salary = 600000,
+gender = "male"
+WHERE id = "008";
+
+# AO TENTAR ALTERAR UMA LINHA INEXISTENTE O SQL RETORNA UMA AÇÃO DE "SUCESSO" ACOMPANHADA DE UMA MENSAGEM DIZENDO
+# QUE ZERO LINHAS FORAM AFETADAS PORQUE NÃO HÁ EQUIVALENCIA COM UMA LINHA EXISTENTE.
+
+# EXERCICIO 3
+# A
+DELETE FROM Actor WHERE name = "Fernanda Montenegro";
+
+# B
+DELETE FROM Actor
+WHERE
+	gender = "male" AND
+	salary > 1000000;
+    
+# EXERCICIO 4
+# A
+SELECT MAX(salary) FROM Actor;
+
+# B
+SELECT MIN(salary) FROM Actor WHERE gender = "female";
+
+# C
+SELECT COUNT(*) FROM Actor WHERE gender = "female";
+
+# D
+SELECT SUM(salary) FROM Actor;
+
+# EXERCICIO 5
+# A
+SELECT COUNT(*), gender
+FROM Actor
+GROUP BY gender;
+# AO RODAR A QUERY FICOU CLARO QUE É FEITO UMA CONTAGEM AGRUPADA POR GENERO, GERANDO O RESULTADO DE 5 HOMENS E 2 MULHERES
+
+# B
+SELECT id, name FROM Actor
+ORDER BY name DESC;
+
+# C
+SELECT * FROM Actor
+ORDER BY salary;
+
+# D
+SELECT * FROM Actor
+ORDER BY salary DESC
+LIMIT 3;
+
+# E
+SELECT AVG(salary), gender FROM Actor
+GROUP BY gender;
+
+# EXERCICIO 6
+
+# A 
+ALTER TABLE Movie ADD playing_limit_date DATE NOT NULL DEFAULT "2022-04-14";
+SELECT * FROM Movie;
+
+# B
+ALTER TABLE Movie CHANGE rating rating FLOAT;
+
+# C
+UPDATE Movie
+SET
+	playing_limit_date = "2020-12-31"
+WHERE id = "001";
+
+UPDATE Movie
+SET
+	playing_limit_date = "2022-04-30"
+WHERE id = "003";
+
+# D
+DELETE FROM Movie WHERE id = "001";
+
+UPDATE Movie
+SET 
+	synopsis = "ababuble ababuble"
+WHERE id = "001";
