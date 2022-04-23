@@ -1,0 +1,135 @@
+CREATE TABLE Rating (
+		id VARCHAR(255) PRIMARY KEY,
+    comment TEXT NOT NULL,
+		rate FLOAT NOT NULL,
+    movie_id VARCHAR(255),
+    FOREIGN KEY (movie_id) REFERENCES Movie(id)
+);
+
+# EXERCICIO 1 A
+# CHAVE ESTRANGEIRA, OU FOREIGN KEY (FK), OU AINDA CHAVE EXTERNA É A CHAVE QUE PERMITE A REFERÊNCIA A REGISTROS ORIUNDOS
+# DE OUTRAS TABELAS. OU SEJA, É O CAMPO OU CONJUNTO DE CAMPOS QUE COMPÕE A CHAVE PRIMÁRIA DE UMA OUTRA TABELA.
+
+# EXERCICIO 1 B
+INSERT INTO Rating (id, comment, rate, movie_id) 
+VALUES (
+	"001",
+    "Muito bom!",
+    7,
+	"004"
+);
+
+INSERT INTO Rating (id, comment, rate, movie_id) 
+VALUES (
+	"002",
+    "Totalmente excelente!",
+	9.9,
+	"003"
+);
+
+INSERT INTO Rating (id, comment, rate, movie_id) 
+VALUES (
+	"003",
+    "Entregou tudo sem prometer nada!",
+    9.5,
+	"002"
+);
+
+INSERT INTO Rating (id, comment, rate, movie_id) 
+VALUES (
+	"004",
+    "joia!",
+    4,
+	"001"
+);
+
+SELECT * FROM Rating;
+
+# EXERCICIO 1 C
+# AO TENTAR CRIAR UMA AVALIAÇÃO PARA UM FILME INEXISTENTE NA TABELA DE FILMES FOI OBTIDA A MENSAGEM DE ERRO:
+# "NÃO FOI POSSIVEL ADICIONAR OU ATUALIZAR UMA LINHA FILHA: A CHAVE ESTRANGEIRA FALHA CONSTANTEMENTE" POR SER UM ID
+# INEXISTENTE
+
+# EXERCICIO 1 D
+
+ALTER TABLE Movie DROP COLUMN rating;
+
+# EXERCICIO 1 E
+DELETE FROM Movie WHERE title = "Bacurau";
+# A RESPOSTA OBTIDA AO TENTAR DELETAR O FILME FOI DE QUE NÃO É POSSÍVEL ATUALIZAR OU DELETAR UMA PARENT ROW 
+# PORQUE A CHAVE ESTRANGEIRA FALHA CONSTANTEMENTE.
+
+CREATE TABLE MovieCast (
+	movie_id VARCHAR(255),
+	actor_id VARCHAR(255),
+    FOREIGN KEY (movie_id) REFERENCES Movie(id),
+    FOREIGN KEY (actor_id) REFERENCES Actor(id)
+);
+
+# EXERCICIO 2 A
+# ESTA TABELA CORRELACIONA DADOS DE DUAS TABELAS DIFERENTES PRE EXISTENTES, QUE NOS MOSTRA QUE UM ATOR PODE ESTAR EM 
+# VARIOS FILMES E QUE VARIOS FILMES PODEM CONTER OS MESMOS ATORES. 
+
+# EXERCICIO 2 B
+
+INSERT INTO MovieCast(movie_id, actor_id)
+VALUES(
+	"004",
+    "001"
+);
+
+INSERT INTO MovieCast(movie_id, actor_id)
+VALUES(
+	"004",
+    "003"
+);
+
+INSERT INTO MovieCast(movie_id, actor_id)
+VALUES(
+	"003",
+    "006"
+);
+
+INSERT INTO MovieCast(movie_id, actor_id)
+VALUES(
+	"003",
+    "005"
+);
+
+INSERT INTO MovieCast(movie_id, actor_id)
+VALUES(
+	"002",
+    "007"
+);
+
+INSERT INTO MovieCast(movie_id, actor_id)
+VALUES(
+	"002",
+    "004"
+);
+
+# EXERCICIO 2 C
+
+INSERT INTO MovieCast(movie_id, actor_id)
+VALUES(
+	"001",
+    "008"
+);
+# AO TENTAR REALIZAR A CORRELAÇÃO ENTRE ATOR E FILME INEXISTENTE FOI OBTIDA A MENSAGEM DE FALHA DE CHAVE ESTRANGEIRA
+
+# EXERCICIO 2 D
+
+DELETE FROM Actor WHERE id = "007";
+# NOVAMENTE FOI OBTIDA A MENSAGEM DE ERRO DE CHAVE ESTRANGEIRA
+
+# EXERCICIO 3 A
+
+SELECT * FROM Movie 
+INNER JOIN Rating ON Movie.id = Rating.movie_id;
+
+# O OPERADOR ON INDICA ONDE SERÁ BUSCADA A CORRELAÇÃO DO OPERADOR JOIN.
+
+# EXERCICIO 3 B
+
+SELECT m.id as movie_id, r.rate as rating FROM Movie m
+INNER JOIN Rating r ON m.id = r.movie_id;
