@@ -1,7 +1,5 @@
 import express, { Request, Response } from "express";
-import knex from "knex";
 import cors from "cors";
-import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import { v4 as generateId } from 'uuid';
 import connection from "./connection";
@@ -24,21 +22,27 @@ app.get("/teste", (req: Request, res: Response): void =>{
 app.post ("/user", async (req: Request, res: Response): Promise<void> =>{
   try{
     const id = generateId(); 
+    const name = req.body.name;
+    const nickname = req.body.nickname;
+    const email = req.body.email
 
-    await connection ("TodoListUser").insert({
-      id,
-      name:req.body.name,
-      nickname:req.body.nickname,
-      email:req.body.email
-    })
-        
-    res.status(200).send({ message: "Usuário criado" });
+    if (name == "" || nickname == "" || email == ""){
+      res.status(400).send({ message: "Por favor preencha os dados"})
+    }else{
+      await connection ("TodoListUser").insert({
+          id,
+          name,
+          nickname,
+          email
+      })
+    }
+        res.status(200).send({ message: "Usuário criado" });
   }catch (error: any) {
       res.status(500).send(error.sqlMessage || error.message);
-  }
+   }
 });
 
-app.get("/user", async(req: Request, res: Response): Promise<void> =>{
+app.get("/user/all", async(req: Request, res: Response): Promise<void> =>{
   try{
     const result = await connection("TodoListUser")
     res.status(200).send(result);
@@ -47,6 +51,36 @@ app.get("/user", async(req: Request, res: Response): Promise<void> =>{
 }
 })
 
+app.get("/user/:id", async(req: Request, res: Response): Promise<void> =>{
+  try{
+    const userID = req.params.id
+    const result = await connection("TodoListUser")
+      .select(
+        "id",
+        "name",
+        "nickname",
+        "email"
+      )
+      .where({"TodoListUser.id": userID})
+    res.status(200).send(result);
+  }catch (error: any) {
+    res.status(500).send(error.sqlMessage || error.message);
+}
+})
+
+app.put("/user/edit/:id", async(req:Request, res:Response): Promise<void> =>{
+  try{
+      const userIDUpdate = req.params.id
+      const name = req.body.name
+      
+      const result = await connection("TodoListUser")
+      .update("TodoLisUser")
+
+    res.status(200).send({message:"Usuário atualizado com sucesso!"})
+  }catch (error:any){
+    res.status(500).send(error.sqlMessage || error.message);
+  }
+})
 
 
 

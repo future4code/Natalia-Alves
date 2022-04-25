@@ -15,10 +15,16 @@ POST http://localhost:3003/user
 Content-Type: application/json
 
 {
-	"name": "Astro Dev",
-	"nickname": "astrodev",
-	"email": "astro@dev.com"
+	"name": "Monkey D. Luffy",
+	"nickname": "Mugiwara",
+	"email": "mugiwara-no-luffy@onepiece.com.br"
 }
 
 ### 
-GET http://localhost:3003/user
+GET http://localhost:3003/user/all
+
+### 
+GET http://localhost:3003/user/c5ee1863-f4ca-41a3-836f-f45bcdf9219c
+
+### 
+GET http://localhost:3003/user/edit/c5ee1863-f4ca-41a3-836f-f45bcdf9219c
