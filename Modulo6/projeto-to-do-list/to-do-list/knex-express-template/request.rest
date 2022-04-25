@@ -1,0 +1,24 @@
+//Para requisições com body:
+//Content-Type: application/json
+//Pule 1 linha
+// {}
+
+//Para requisições com headers:
+//Authorization: "token"
+
+
+### //endpoint teste
+GET http://localhost:3003/teste
+
+###
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+	"name": "Astro Dev",
+	"nickname": "astrodev",
+	"email": "astro@dev.com"
+}
+
+### 
+GET http://localhost:3003/user
