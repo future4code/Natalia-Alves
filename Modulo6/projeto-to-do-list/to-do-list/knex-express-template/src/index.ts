@@ -3,6 +3,7 @@ import cors from "cors";
 import { AddressInfo } from "net";
 import { v4 as generateId } from 'uuid';
 import connection from "./connection";
+import moment from 'moment';
 
 const app = express();
 
@@ -42,6 +43,7 @@ app.post ("/user", async (req: Request, res: Response): Promise<void> =>{
    }
 });
 
+//Endpoint pegar todos os usuários
 app.get("/user/all", async(req: Request, res: Response): Promise<void> =>{
   try{
     const result = await connection("TodoListUser")
@@ -51,6 +53,7 @@ app.get("/user/all", async(req: Request, res: Response): Promise<void> =>{
 }
 })
 
+//Endpoint pegar usuário por id
 app.get("/user/:id", async(req: Request, res: Response): Promise<void> =>{
   try{
     const userID = req.params.id
@@ -68,13 +71,18 @@ app.get("/user/:id", async(req: Request, res: Response): Promise<void> =>{
 }
 })
 
+//Endpoint editar usuário 
 app.put("/user/edit/:id", async(req:Request, res:Response): Promise<void> =>{
   try{
       const userIDUpdate = req.params.id
-      const name = req.body.name
       
       const result = await connection("TodoListUser")
-      .update("TodoLisUser")
+      .update({
+        name:req.body.name,
+        nickname:req.body.nickname,
+        email:req.body.email
+      })
+      .where({id:userIDUpdate})
 
     res.status(200).send({message:"Usuário atualizado com sucesso!"})
   }catch (error:any){
@@ -82,6 +90,62 @@ app.put("/user/edit/:id", async(req:Request, res:Response): Promise<void> =>{
   }
 })
 
+//Endpoint criar tarefa
+app.post ("/task", async (req: Request, res: Response): Promise<any> =>{
+  try{
+  
+
+    const id = generateId();
+    const title = req.body.title;
+    const description = req.body.description;
+    const limit_date = req.body.limitDate.split("/").reverse().join("-");
+    const creator_user_id = req.body.creatorUserId;
+
+    
+
+    if ( title == "" || description == "" || limit_date == "" || creator_user_id == ""){
+      res.status(400).send({ message: "Por favor preencha os dados"})
+    }else{
+      let result = await connection ("TodoListTask")
+      .insert({
+          id,
+          title,
+          description,
+          limit_date, 
+          creator_user_id
+      })
+    
+      res.status(200).send({message: "Tarefa criada com sucesso!"});
+    }
+  }catch (error: any) {
+      res.status(500).send(error.sqlMessage || error.message);
+   }
+});
+
+//Endpoint buscar tarefa pelo id
+
+app.get("/task/:id", async(req: Request, res: Response): Promise<void> =>{
+  try{
+    const taskID = req.params.id
+    const result = await connection("TodoListTask")
+      .innerJoin(
+        "TodoListUser",
+        "TodoListTask.creator_user_id",
+        "TodoListUser.id"
+      ).select("TodoListTask.*", "TodoListUser.nickname")
+      .where({"TodoListTask.id": taskID})
+
+    if (result.length === 0){
+      throw new Error("Id não encontrado")
+    }
+    let formattedDate = (moment(result[0].limit_date)).format('DD-MM-YYYY')
+    result[0].limit_date = formattedDate
+
+    res.status(200).send(result);
+  }catch (error: any) {
+    res.status(500).send(error.sqlMessage || error.message);
+}
+})
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
