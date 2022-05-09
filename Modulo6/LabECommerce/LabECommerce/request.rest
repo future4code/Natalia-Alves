@@ -1,0 +1,46 @@
+//Para requisições com body:
+//Content-Type: application/json
+//Pule 1 linha
+// {}
+
+//Para requisições com headers:
+//Authorization: "token"
+
+### //endpoint create user
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+	"name": "Roronoa Zoro",
+	"email": "marimo_santoryu@onepiece.com.br",
+    "password": "marimo"
+}
+
+### //endpoint get all users
+GET http://localhost:3003/user/all
+
+### //endpoint create product
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+	"name": "Enma",
+	"price": 45.8,
+    "imageUrl": "marimohttps://static.wikia.nocookie.net/onepiece/images/7/7c/Enma_Anime.png/revision/latest?cb=20210108034234"
+}
+
+### //endpoint get all products
+GET http://localhost:3003/products/all
+
+### //endpoint create product
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+	"userId": "98feda26-9fbb-4aa8-8511-0bd8c982d091",
+	"productId": "575ffe25-3dba-4e49-9ecb-3d75353b56fa",
+    "quantity": 3
+}
+
+### //endpoint get purchase by user id
+GET http://localhost:3003/users/98feda26-9fbb-4aa8-8511-0bd8c982d091/purchases
