@@ -1,0 +1,51 @@
+//Para requisições com body:
+//Content-Type: application/json
+//Pule 1 linha
+// {}
+
+//Para requisições com headers:
+//Authorization: "token"
+
+
+### //endpoint teste
+GET http://localhost:3003/teste
+
+### //endpoint create user
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+	"name": "Roronoa Zoro",
+	"nickname": "Marimo",
+	"email": "marimo_santoryu@onepiece.com.br"
+}
+
+### //endpoint get all users
+GET http://localhost:3003/user/all
+
+### //endpoint get user by id
+GET http://localhost:3003/user/c5ee1863-f4ca-41a3-836f-f45bcdf9219c
+
+### //endpoint update user
+PUT http://localhost:3003/user/edit/c5ee1863-f4ca-41a3-836f-f45bcdf9219c
+Content-Type: application/json
+
+{
+	"name": "Monkey D. Luffy",
+	"nickname": "Mugiwara no Luffy",
+	"email": "mugiwara-no-luffy@onepiece.com.br"
+}
+
+### // endpoint create task
+POST http://localhost:3003/task
+Content-Type: application/json
+
+{
+	"title": "Comer carne",
+    "description": "Pedir para o Sanji preparar muita carne para o almoço",
+    "limitDate": "25/04/2022", 
+	"creatorUserId": "c5ee1863-f4ca-41a3-836f-f45bcdf9219c"
+}
+
+### //endpoint get task by id
+GET http://localhost:3003/task/61dd0fcc-849d-4d07-9431-e8b4aa444553
