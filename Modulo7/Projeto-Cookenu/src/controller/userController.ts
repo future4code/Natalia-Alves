@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { EditUserInputDTO, UserInputDTO, LoginInputDTO } from "../model/user";
+import { GetOwnProfileDTO, UserInputDTO, LoginInputDTO } from "../model/user";
 
 export class UserController {
 
@@ -20,7 +20,6 @@ export class UserController {
     
           const input: UserInputDTO = {
             name,
-            nickname,
             email,
             password,
           };
@@ -56,23 +55,22 @@ export class UserController {
         }
       }; 
 
-      public editUser = async (req: Request, res: Response) => {
-        try {
+      // public getOwnProfile = async (req: Request, res: Response) => {
+      //   try {
           
-          const input: EditUserInputDTO = {
-            name: req.body.name,
-            nickname: req.body.nickname,
-            token: req.headers.authorization!
-          };
+      //     const input: GetOwnProfileDTO = {
+      //       name: req.body.name,
+      //       token: req.headers.authorization!
+      //     };
 
-          const userBusiness = new UserBusiness()
-          userBusiness.editUser(input);
+      //     const userBusiness = new UserBusiness()
+      //     userBusiness.getOwnProfile(input);
     
-          res.status(201).send({ message: "Usuário alterado!" });
-        } catch (error: any) {
-          res.status(400).send(error.message);
-        }
-      }; 
+      //     res.status(201).send({ message: "Usuário alterado!" });
+      //   } catch (error: any) {
+      //     res.status(400).send(error.message);
+      //   }
+      // }; 
  
 
 

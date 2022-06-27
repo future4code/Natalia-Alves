@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "ts-node-dev nodemon ./src/index.ts",
-    "start": "node ./build/index.js",
-    "build": "tsc"
+    "start": "tsc && node --inspect ./build/index.js",
+    "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
+    "test": "ts-node-dev ./src/services/authenticator.ts"
   },
   "author": "",
   "license": "ISC",

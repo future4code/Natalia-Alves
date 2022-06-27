@@ -3,8 +3,7 @@ import { CustomError, InvalidEmail, InvalidName, InvalidPassword } from "../erro
 import {
   UserInputDTO,
   user,
-  EditUserInputDTO,
-  EditUserInput,
+  GetOwnProfileDTO,
   LoginInputDTO,
 } from "../model/user";
 import { Authenticator } from "../services/Authenticator";
@@ -13,9 +12,9 @@ import { generateId } from "../services/generateID";
 export class UserBusiness {
   public createUser = async (input: UserInputDTO): Promise<string> => {
     try {
-      const { name, nickname, email, password } = input;
+      const { name, email, password } = input;
 
-      if (!name || !nickname || !email || !password) {
+      if (!name || !email || !password) {
         throw new CustomError(
           400,
           'Preencha os campos "name","nickname", "email" e "password"'
@@ -30,12 +29,15 @@ export class UserBusiness {
         throw new InvalidEmail();
       }
 
+      if (password.length<6){
+        throw new InvalidPassword();
+      }
+
       const id: string = generateId();
 
       const user: user = {
         id,
         name,
-        nickname,
         email,
         password,
       };
@@ -79,38 +81,37 @@ export class UserBusiness {
     }
   };
 
-  public editUser = async (input: EditUserInputDTO): Promise<void> => {
-    try {
-      const { name, nickname, token } = input;
+  // public getOwnProfile = async (input: GetOwnProfileDTO): Promise<void> => {
+  //   try {
+  //     const { name, token } = input;
 
-      if (!name || !nickname || !token) {
-        throw new CustomError(
-          400,
-          'Preencha os campos "token", "name" e "nickname"'
-        );
-      }
+  //     if (!name || !token) {
+  //       throw new CustomError(
+  //         400,
+  //         'Preencha os campos "token", "name" e "nickname"'
+  //       );
+  //     }
 
-      if (name.length < 4) {
-        throw new InvalidName();
-      }
+  //     if (name.length < 4) {
+  //       throw new InvalidName();
+  //     }
 
-      const authenticator = new Authenticator()
-      const payload = authenticator.getTokenData(token)
+  //     const authenticator = new Authenticator()
+  //     const payload = authenticator.getTokenData(token)
 
-      if(!payload.id) {
-        throw new CustomError(401, "Usuário não autorizado")
-      }
+  //     if(!payload.id) {
+  //       throw new CustomError(401, "Usuário não autorizado")
+  //     }
 
-      const editUserInput: EditUserInput = {
-        id: payload.id,
-        name,
-        nickname,
-      };
+  //     const editUserInput: EditUserInput = {
+  //       id: payload.id,
+  //       name,
+  //     };
 
-      const userDatabase = new UserDatabase();
-      await userDatabase.editUser(editUserInput);
-    } catch (error: any) {
-      throw new CustomError(400, error.message);
-    }
-  };
+  //     const userDatabase = new UserDatabase();
+  //     await userDatabase.editUser(editUserInput);
+  //   } catch (error: any) {
+  //     throw new CustomError(400, error.message);
+  //   }
+  // };
 }

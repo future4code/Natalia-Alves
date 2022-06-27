@@ -8,4 +8,4 @@ const userController = new UserController()
 
 userRouter.post('/signup', userController.createUser)
 userRouter.post('/login', userController.login)
-userRouter.put('/edit',userController.editUser )
+// userRouter.put('/edit',userController.getOwnProfile )

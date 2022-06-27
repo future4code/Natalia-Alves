@@ -1,0 +1,21 @@
+//ENDPOINT CREATE USER
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "name": "natalia", 
+   "email": "natalia@labenu.com" ,
+   "password": "654321"
+}
+
+###
+
+//ENDPOINT LOGIN
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+   "email": "rodrigo@oscorp.com" ,
+   "password": "123456"
+}
