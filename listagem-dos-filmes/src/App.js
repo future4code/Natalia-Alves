@@ -1,11 +1,26 @@
 import React from 'react';
-import './App.css';
+import { ChakraProvider } from '@chakra-ui/react'
+import theme from './constants/GlobalStyle';
+import { BrowserRouter as Router, Routes , Route } from 'react-router-dom'
+import HomePage from './pages/HomePage/HomePage';
+import FilmDetails from './pages/FilmDetails/FilmDetails';
+
 
 function App() {
   return (
-    <div className="App">
+    <ChakraProvider theme={theme}>
+      <Router>
+      <div>
+      <Routes>
 
-    </div>
+        <Route exact path= '/' element={<HomePage/>}/>
+
+        <Route exact path= '/filmdetails/{id}' element={<FilmDetails/>}/>
+
+      </Routes>
+      </div>
+      </Router>
+    </ChakraProvider>
   );
 }
 
