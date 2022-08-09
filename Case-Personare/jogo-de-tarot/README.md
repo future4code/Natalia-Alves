@@ -2,7 +2,7 @@
 # JOGO DE TAROT DO AMOR 
 ### Feito como um case de estudo de Front End para conclusão do curso da Labenu.
 
-Link Surge com resultado da aplicação: casepersonare-natalia.surge.sh
+Link Surge com resultado da aplicação: [https:/casepersonare-natalia.surge.sh](https://casepersonare-natalia.surge.sh/)
 
 Requisitos pedidos no case:
 
