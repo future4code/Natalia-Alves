@@ -22,7 +22,7 @@ export const getMovieGenres = (setMovieGenres) => {
     })
 }
 
-export const getMovieDetais = (id, setMovie) => {
+export const getMovieDetails = (id, setMovie) => {
     axios.get(`${BASE_URL}${id}?${API_KEY}&language=pt-BR`)
     .then((res) => {
         setMovie(res.data)
@@ -42,12 +42,22 @@ export const getActors = (id, setCast) => {
     })
 }
 
-export const getTrailer = (id, setMovieDetais) => {
+export const getTrailer = (id, setDetais) => {
     axios.get(`${BASE_URL}${id}?${API_KEY}&append_to_response=videos&language=pt-BR`)
     .then((res) => {
-        setMovieDetais(res.data)
+        setDetais(res.data)
     })
     .catch((err) => {
+        console.log(err.message)
+    })
+}
+
+export const getRecomendations = (id, setRecomendations) =>{
+    axios.get(`${BASE_URL}${id}/recomendations?${API_KEY}&language=pt-BR`)
+    .then((res) => {
+        setRecomendations(res.data)
+    })
+    .catch((err) =>{
         console.log(err.message)
     })
 }

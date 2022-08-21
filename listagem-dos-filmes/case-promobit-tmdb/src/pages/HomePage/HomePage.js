@@ -38,6 +38,7 @@ function HomePage() {
         </MovieGenre>
     })
 
+
     const movieListed = moviesList && moviesList.map ((movie) => {
         return <MovieCard
         key = {movie.id}
@@ -47,6 +48,18 @@ function HomePage() {
         onClickCard = {() => onClickCard(movie.id)}>
         </MovieCard>
     })
+
+    // const movieListedFiltered = moviesList.filter ((genre, movie) => {
+    //     if (genre.id === movie.genres_id){
+    //         return (<MovieCard
+    //         key = {movie.id}
+    //         poster_path = {movie.poster_path}
+    //         title = {movie.title}
+    //         release_date = {movie.release_date}
+    //         onClickCard = {() => onClickCard(movie.id)}>
+    //         </MovieCard>)
+    //     }
+    // })
 
     return (
       <div>

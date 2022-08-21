@@ -26,7 +26,7 @@ export const DescriptionContainer = styled.div`
     font-size: 27px;
     p{
     font-size: 14px;
-}
+    }
 `
 
 export const ButtonsContainer = styled.div`
@@ -35,4 +35,5 @@ export const ButtonsContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     width: 75%;
+
 `

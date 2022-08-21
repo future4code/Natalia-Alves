@@ -5,5 +5,5 @@ export const goHomePage = (navigate) => {
 }
 
 export const goMovieDetails = (navigate, id) => {
-    navigate(`/card/${ id }`)
+    navigate(`/movie/${ id }`)
 } 
