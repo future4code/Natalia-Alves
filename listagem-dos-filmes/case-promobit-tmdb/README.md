@@ -1,73 +1,53 @@
+![68747470733a2f2f692e696d6775722e636f6d2f367132416952672e706e67](https://user-images.githubusercontent.com/89141117/185822165-bae1b8c7-f352-4154-841c-d180c30d83ca.png)
+
+
 # CASE PROMOBIT - SITE DE VISUALIZAÇÃO DE FILMES COM A API TMDB
 
+### Feito como um case de estudo de Front End para conclusão do curso da Labenu.
 
-# Getting Started with Create React App
+Link Surge com resultado da aplicação: https://casepromobit-tmdb.surge.sh/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Requisitos pedidos no case:
 
-## Available Scripts
+#### - Criar uma listagem de filmes populares no dia e ver detalhes do filme
 
-In the project directory, you can run:
+E as especificações são:
 
-### `npm start`
+- [x] O usuário deve ter acesso a uma listagem dos filmes mais populares do dia
+- [x] O usuário deve conseguir paginar a lista para encontrar novos filmes
+- [x] O usuário deve ter acesso a uma outra página com detalhes sobre o filme, ao clicar em um item na listagem
+- [x] A página com detalhes de um filme deve possuir uma rota própria e estar preparada para ser indexada em mecanismos de pesquisa
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## VISUALIZAÇÃO DO SITE:
 
-### `npm test`
+### HOME
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/89141117/185822761-3645c927-7ee1-42a4-b96b-791807866482.png)
 
-### `npm run build`
+### DETALHES DO FILME
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://user-images.githubusercontent.com/89141117/185822866-553834d0-6b84-414f-bce7-28768dbcc357.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://user-images.githubusercontent.com/89141117/185822892-1ea824c0-0fa6-4cf1-bd69-2feaba90636a.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://user-images.githubusercontent.com/89141117/185822923-c75afa4e-56c6-4574-90bd-14f3d162f6d3.png)
 
-### `npm run eject`
+<h4 align="center"> 
+  ❎  Case Promobit 🏗️ Em construção  ❎ 
+</h4>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Pré-requisitos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🛠 Tecnologias
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+As seguintes ferramentas foram usadas na construção do projeto:
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [React Router Dom](https://v5.reactrouter.com/)
+- [styled-components](https://styled-components.com/)
