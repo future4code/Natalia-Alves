@@ -1,0 +1,18 @@
+//Para requisições com body:
+//Content-Type: application/json
+//Pule 1 linha
+// {}
+
+//Para requisições com headers:
+//Authorization: "token"
+
+### // endpoint create user
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "user@lama.com",
+	"name": "tosho cada",
+    "password": "123456",
+    "role": "ADMIN"
+}
