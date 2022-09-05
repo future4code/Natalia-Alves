@@ -3,6 +3,7 @@ import { DogWalkingDatabase } from "../data/DogWalkingDatabase";
 import { DogWalkingBusiness } from "../business/DogWalkingBusiness"
 import { dogWalking, dogWalkingInputDTO } from "../model/types";
 import { InvalidData, InvalidTime, InvalidPet} from "../customErrors/customErrors"
+import { send } from "process";
 
 
 export class DogWalkingController{
@@ -46,6 +47,80 @@ export class DogWalkingController{
             
         } catch (error: any) {
             res.status(400).send(error.sqlMessage || error.message)
+        }
+    }
+
+    public showWalking =async (req:Request, res:Response) => {
+        try {
+            const input: any = {
+                id: req.params.id,
+            }
+            const duration = await new DogWalkingDatabase().showWalking(input)
+            res.send(duration).status(200)
+        } catch (error: any) {
+            res.send({message: error.message}).status(error.sqlMessage || error.message)
+        }
+    }
+
+    public startWalking =async (req:Request, res: Response) => {
+        try {
+            const input: any = {
+                id: req.params.id,
+            }
+            const start = await new DogWalkingDatabase().startWalking(input)
+            res.send(start).status(200)
+        } catch (error: any) {
+            res.send({message: error.message}).status(error.sqlMessage || error.message)
+        }
+    }
+
+    public finishWalking =async (req:Request, res:Response) => {
+        try {
+            const input: any = {
+                id: req.params.id,
+            }
+            const end = await new DogWalkingDatabase().finishWalking(input)
+            res.send(end).status(200)
+        } catch (error: any) {
+            res.send({message: error.message}).status(error.sqlMessage || error.message)
+        }
+        
+    }
+
+    public allWalking =async (req:Request, res:Response) => {
+        try {
+            const input: any = {
+                id: req.params.id,
+                search: req.query.search,
+                sort: req.query.sort as string,
+                order: req.query.order as string,
+                page: Number(req.query.page),
+                size: Number(req.query.size),
+            }
+
+            let offset = input.size * (input.page-1)
+            input.offset = offset
+
+            if(!input.appointment_day){
+                input.appointment_day ="%"
+            }
+
+            if(input.sort !== "appointment_day"){
+                input.sort = "appointment_date"
+            }
+
+            if (!input.order || input.order.toUpperCase() !== "ASC" && input.order.toUpperCase() !== "DESC"){
+                input.order = "ASC"
+            }
+
+            if(isNaN(input.size || input.size < 1)) {
+                input.size = 10
+            }
+            
+            const end = await new DogWalkingDatabase().allWalking(input)
+            res.send(end).status(200)
+        } catch (error: any) {
+            res.send({message: error.message}).status(error.sqlMessage || error.message)
         }
     }
 }

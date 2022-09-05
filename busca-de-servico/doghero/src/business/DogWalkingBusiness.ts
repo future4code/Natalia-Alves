@@ -1,14 +1,11 @@
-import { band, BandInputDTO } from "../model/Band";
+import { DogWalkingDatabase } from "../data/DogWalkingDatabase";
+import { dogWalking, dogWalkingInputDTO } from "../model/types";
 import { IdGenerator } from "../services/IdGenerator";
-import { Authenticator } from "../services/Authenticator";
-import { BaseError } from "../error/BaseError";
-import { MissingFieldsToComplete } from "../error/MissingFieldsToComplete";
-import { BandRepository } from "./BandRepository";
-import { invalidAuthenticatorData, invalidToken } from "../error/AutenticatorError";
 
+const idGenerator = new IdGenerator()
 
-export class BandBusiness {
-    constructor(private bandDatabase: BandRepository) { }
+export class DogWalkingBusiness {
+    public
 
     async createBand(input: BandInputDTO, token: string) {
         try {
