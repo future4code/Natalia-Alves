@@ -1,47 +1,51 @@
 import { Request, Response } from "express";
-import { BandInputDTO , Band, band} from "../model/Band";
-import { BandBusiness } from "../business/BandBusiness";
-import { BaseDatabase } from "../data/BaseDatabase";
-import { BaseError } from "../error/BaseError";
+import { DogWalkingDatabase } from "../data/DogWalkingDatabase";
+import { DogWalkingBusiness } from "../business/DogWalkingBusiness"
+import { dogWalking, dogWalkingInputDTO } from "../model/types";
+import { InvalidData, InvalidTime, InvalidPet} from "../customErrors/customErrors"
 
 
-export class BandController{
-    constructor(private bandBusiness: BandBusiness) { }
-    async register (req: Request, res: Response) {
-        try{
-            const token = req.headers.authorization as string
-            const band = Band
-
-            const input: BandInputDTO ={
-                name: req.body.name,
-                musicGenre: req.body.music_genre,
-                responsible: req.body.resposible,
-                token: token
+export class DogWalkingController{
+    public createWalking =async (req:Request, res:Response): Promise <void> => {
+        try {
+            if(req.body.pets < 1){
+                throw new InvalidPet();
+            }
+            if(!req.body.appointment_day || !req.body.duration || !req.body.latitude || !req.body.longitude ||
+                !req.body.pets || !req.body.start_time || !req.body.end_time){
+                    throw new InvalidData();     
+            }
+            if(req.body.duration != "00:30:00" && req.body.duration != "01:00:00"){
+                throw new InvalidTime(); 
             }
 
-            await this.bandBusiness.createBand(input, token)
+            const {
+                appointment_day,
+                duration,
+                latitude,
+                longitude,
+                pets,
+                start_time,
+                end_time
+            } = req.body
 
-        }catch (error: any) {
-            res.status(400).send({ error: error.message });
-        }
-        await BaseDatabase.destroyConnection();
-    }
-
-    async details(req: Request,res: Response){
-        try{
-            const token = req.headers.authorization as string
-            const { id } = req.params
-
-            const band = await this.bandBusiness.getBandById(id, token)
-
-            if(!band) {
-                throw new BaseError (400, "Not Found");
+            const input: dogWalkingInputDTO = {
+                appointment_day,
+                duration,
+                latitude,
+                longitude,
+                pets,
+                start_time,
+                end_time
             }
 
-            res.status(200).send(band)
-        }catch (error: any) {
-            res.status(400).send({ error: error.message });;
-        }
+            const dogWalkingBusiness = new DogWalkingBusiness
+            dogWalkingBusiness.createWalking(input)
 
+            res.status(201).send({ message: "Hike successfully added!"})
+            
+        } catch (error: any) {
+            res.status(400).send(error.sqlMessage || error.message)
+        }
     }
 }
