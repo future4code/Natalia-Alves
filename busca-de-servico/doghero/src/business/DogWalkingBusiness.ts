@@ -5,74 +5,110 @@ import { IdGenerator } from "../services/IdGenerator";
 const idGenerator = new IdGenerator()
 
 export class DogWalkingBusiness {
-    public
-
-    async createBand(input: BandInputDTO, token: string) {
+    
+    public createWalking = async (input: dogWalkingInputDTO) => {
         try {
+            const { 
+                appointment_day, 
+                duration, 
+                latitude,
+                longitude,
+                pets,
+                start_time,
+                end_time 
+            } = input
 
-            const { name, musicGenre, responsible } = input
-
-            if (!token) {
-                throw new BaseError(400, "Token not found!");
+            const calculations = (duration: any, pets: any) => {
+                if (duration === "00:30:00"){
+                    if (pets >= 2){
+                        let quantity = pets
+                        pets = pets * -15
+                        let price: number = 25 * quantity + pets
+                        return price
+                    }else{
+                        let price: number = 25 * pets
+                        return price
+                    }
+                }else if (duration === "01:00:00"){
+                    if (pets >= 2){
+                        let quantity = pets
+                        pets = pets * -20
+                        let price: number = 35 * quantity + pets
+                        return price
+                    }else{
+                        let price: number = 35 * pets
+                        return price
+                    }
+                }
             }
 
-            if (!name || !musicGenre || !responsible) {
-                throw new MissingFieldsToComplete();
+            const price: any = calculations (input.duration, input.pets)
+            const id: string = idGenerator.generate()
+            const stats: any = "Pending"
+
+            const dogWalkingDatabase = new DogWalkingDatabase()
+            const walking: dogWalking = {
+                id,
+                stats,
+                appointment_day,
+                price,
+                duration,
+                latitude,
+                longitude,
+                pets,
+                start_time,
+                end_time
             }
 
-            const authenticator = new Authenticator();
-
-            const getAuthData = authenticator.getData(token)
-
-            if (!getAuthData) {
-                throw new BaseError(400, "Token not found!");
-            }
-            if (getAuthData.role !== "ADMIN") {
-                throw new BaseError(401, "Unauthorized user!");
-            }
-
-            const idGenerator = new IdGenerator();
-            const id = idGenerator.generate();
-
-            const newBand: band = {
-                id: id,
-                name,
-                musicGenre,
-                responsible
-            }
-
-            await this.bandDatabase.createBand(newBand)
+            await dogWalkingDatabase.insertWalking({
+                id,
+                stats,
+                appointment_day,
+                price,
+                duration,
+                latitude,
+                longitude,
+                pets,
+                start_time,
+                end_time
+            })
 
         } catch (error: any) {
-            throw new BaseError(error.statusCode, error.sqlMessage || error.message);
+            throw new Error(error.sqlMessage || error.message);
         }
     }
 
-    async getBandById(id: string, token: string) {
+    public showWalking = async (walking: dogWalking) => {
         try {
-
-            if (!token) {
-                throw new invalidToken()
-            }
-
-            const authenticatorData = new Authenticator().getTokenData(token)
-
-            if (!authenticatorData.id) {
-                throw new invalidAuthenticatorData()
-            }
-
-            const band = await this.bandDatabase.getBandById(id)
-
-            if (!band) {
-                throw new BaseError(404, "Has no band")
-            }
-
-            return band
+            return await new DogWalkingDatabase().showWalking(walking);
 
         } catch (error: any) {
-            throw new BaseError(error.statusCode, error.sqlMessage || error.message);
+            throw new Error(error.sqlMessage || error.message);
         }
     }
 
+    public startWalking =async (walking:dogWalking) => {
+        try {
+            return await new DogWalkingDatabase().startWalking(walking)
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message); 
+        }
+    }
+
+    public finishWalking =async (walking:dogWalking) => {
+        try {
+            return await new DogWalkingDatabase().finishWalking(walking) 
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message); 
+        }
+    }
+
+    public allWalking =async (walking:dogWalking) => {
+        try {
+            return await new DogWalkingDatabase().allWalking(walking);
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message); 
+        }
+    }
 
 }
