@@ -1,31 +1,36 @@
-# Labenu Music Awards
+# Dog Hero
+<img src= "https://user-images.githubusercontent.com/89141117/189250932-ac883709-4e17-4220-9eab-84b3b02eb514.png" width="500">
 
-<img src= "https://uploads-ssl.webflow.com/5e790d30d198385b09366d8f/61af643ee11eb8a08137d937_Logo%20com%20icone.svg" width="300" height="180">
-
-### Projeto desenvolvido no bootcamp da Labenu para criar o banco de dados de um festival, utilizando uma API para fazer o cadastro das bandas, shows e usuários.
+### Projeto desenvolvido no bootcamp da Labenu, como um case para conclusão do curso.
 
 # DESCRIÇÃO DO PROJETO:
 
-Através dos endpoints do projeto é possível realizar as seguintes ações no banco de dados, que são as funcionalidades básicas propostas:
+Recentemente lançamos um serviço novo de passeios. Seu desafio será pensar em uma estrutura que suporte usuários a pedir esse novo serviço para seus peludos. Algumas observações:
 
-→ Cadastro de Usuário;
+→ Fique a vontade para montar o schema do banco como desejar. Apenas a entidade Dog Walking é obrigatória. Além disso, utilize o RDBS de sua preferência;
 
-→ Login;
+→ Esta entidade deve conter: status, data de agendamento, preço, duração (30 ou 60 min), latitude, longitude, pets, horário de início e término; Fique a vontade para adicionar qualquer atributo de sua escolha;
 
-→ Registrar banda;
+→ Você deve criar uma API para Dog Walking com index, show, create, start_walk e finish_walk;
 
-→ Visualizar detalhes da banda;
+→ A API de index deve receber um filtro através de uma flag para retornar:
 
-→ Adicionar um show a um dia;
+    → Apenas os próximos passeios a partir de hoje ou todos.
+    → Além disso, paginação não é obrigatório, mas seria um plus;
+    → A API para criação de passeio deve receber todos os atributos listados acima menos status;
 
-→ Pegar todos os shows de uma data;
+→ A API de show deve retornar a duração real do passeio, ou seja, a diferença entre o início e o término;
 
-Utilizamos o MySQL para criação do nosso banco de dados através do queries.sql no VSCode, e também o Typescript para a construção da lógica dos enpoints da nossa API.
+→ O preço é calculado dinamicamente.
+
+    → Um passeio de 30 minutos para 1 cachorro custa R$25, sendo cada cachorro adicional R$15.
+    → Um passeio de 60 minutos para 1 cachorro custa R$35, sendo cada cachorro adicional R$20;
+
+Fou utilizado o MySQL para criação do banco de dados através do queries.sql no VSCode, e também o Typescript para a construção da lógica dos enpoints da nossa API.
 
 # QUEM FEZ
 
-### - [Laura Lanna](https://github.com/laura-lannab)
-### - [Natalia Alves](https://github.com/nataliavalins-fga)
+### - [Natalia Alves](https://www.linkedin.com/in/nataliavalin/)
 
 ## Como usar o projeto localmente:
 
@@ -39,67 +44,35 @@ Já existe um arquivo rest para testar os endpoints, mas se desejar também é p
 ## Referências da API:
 Aqui listaremos a documentação dos endpoints da API e seu comportamento esperado.
 
-### endpoint que cadastra usuários
-POST  /signup
+### endpoint cria passeios
+POST  /walking
 
 Neste endpoint é necessário passar as seguintes informações no body da requisição. 
 ```bash
 {   
-    "email": "fulano@lama.com";
-    "password": "258963";
-    "name": "Fulano da Silva";
-    "role": "ADMIN" ou "NORMAL";
+  "appointment_date": "2022-09-07", 
+  "duration":"00:30:00",
+  "latitude":"-19.912998", 
+  "longitude":"-43.940933",
+  "pets":"1",
+  "start_time":"8:00:00", 
+  "end_time":"8:50:00"
 }
 ```
 
 
-### endpoint login
-POST  /login
+### endpoint mostrar por id
+GET  /show/001
 
-Neste endpoint é necessário passar as seguintes informações no body da requisição. 
+### endpoint começar por id
+POST  /start_walk/001
 
-```bash
-{
-     "email": "fulano@lama.com";
-     "password": "258963";
-}
-```
+### endpoint finalizar por id
+POST  /finish_walk/001
 
-### endpoint registrar banda
-POST  /register
+## Projeto ainda em construção
 
-Neste endpoint é necessário passar as seguintes informações no body da requisição.
-```bash
-{
-    "id": "string",
-    "name": "Kings Of Leon",
-    "musicGenre": "Rock",
-    "responsible": "ADMIN" ou "NORMAL"  
-}
-```
-
-### endpoint pegar bandas por id
-GET  /band/id
-
-Neste endpoint é possível buscar bandas cadastradas por id.
-
-
-### endpoint para cadastrar show 
-POST /add
-
-Neste endpoint é necesário enviar as seguintes informações no body da requisição.
-```bash
-{
-    "weekDay": "FRIDAY" ou "SATURDAY" ou "SUNDAY",
-    "startTime": 10h,
-    "endTime": 11h,
-    "bandId": "string"
-}
-```
-
-### endpoint para pegar show por data
-GET /catch?date=FRIDAY
-
+### ainda por desenvolver o endpoint get index.
 
 ## Possiveis mensagens de erro
 
